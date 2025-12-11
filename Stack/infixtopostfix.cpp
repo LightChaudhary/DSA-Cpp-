@@ -8,9 +8,10 @@ class Stack{
     int topindex;
     char arr[size];
 
-    Stack (){
+    Stack(){
         topindex = -1;
     }
+
     bool isEmpty(){
         return topindex == -1;
     }
@@ -31,6 +32,7 @@ class Stack{
         }
         return '\0';
     }
+
     char peek(){
         if(!isEmpty()){
             return arr[topindex];
@@ -41,13 +43,13 @@ class Stack{
 
 bool isOperand(char c){
     return (c >= '0' && c <= '9') || 
-    (c >= 'A' && c <= 'Z') ||
+    (c >= 'A' && c <= 'Z') || 
     (c >= 'a' && c <= 'z');
 }
 
 int precedence(char c){
     if(c == '^') return 3;
-    if(c == '/' || c == '*') return 2;
+    if(c == '*' || c == '/') return 2;
     if(c == '+' || c == '-') return 1;
     return 0;
 }
@@ -58,20 +60,19 @@ string infixToPostfix(string infix){
 
     for (int i = 0; i < infix.length(); i++){
         char c = infix[i];
-
         if(isOperand(c)){
             postfix += c;
         }
         else if (c == '('){
             st.push(c);
-        }
-        else if (c == ')'){
-            while (!st.isEmpty() && st.peek() != '('){
+        } 
+        else if(c == ')'){
+            while(!st.isEmpty() && st.peek() != '('){
                 postfix += st.pop();
             }
             st.pop();
         }
-        else{
+        else {
             while(!st.isEmpty() && 
         precedence(st.peek()) >= precedence(c)){
             postfix += st.pop();
@@ -89,9 +90,9 @@ string infixToPostfix(string infix){
 int main(){
     string infix;
 
-    cout << "Enter infix expression: ";
+    cout << "Enter infix: ";
     cin >> infix;
 
-    cout << "Postfix: " << infixToPostfix(infix) << endl;
+    cout << "Postfix: " << infixToPostfix(infix);
     return 0;
 }
