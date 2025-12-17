@@ -20,7 +20,7 @@ Handles operands, operators, parentheses, and precedence.
 Implements push, pop, peek operations internally.
 Supports operators: +, -, *, /, ^.
 User inputs an infix expression, program outputs postfix.
-Simple and ideal for learning expression conversion using stacks.
+Scans expression from left to right.
 
 ### Evaluation of Postfix Expression
 
@@ -35,3 +35,13 @@ This program calculates the prefix expression and returns a single value.
 Stack is implemented using STL. 
 Handles operands and operators from right to left.
 User inputs an prefix expressoin, program outputs single value.
+
+### Infix to Prefix Conversion Using Stack
+
+This program converts an infix expression into prefix using a stack.
+Stack is implemented with a static char arrar.
+Handles operands, operators, parentheses, and precedence.
+Implements push, pop, peek operations internally.
+Supports operators: +, -, *, /, ^.
+User inputs an infix expression, program outputs prefix.
+Scans expression from right to left.
